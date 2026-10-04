@@ -82,17 +82,36 @@ nav {
 }
 
 nav a {
+    position: relative;
     color: #dff8ea;
     text-decoration: none;
     padding: 9px 14px;
     border-radius: 6px;
-    font-size: 14px
+    font-size: 14px;
+    transition: color .25s ease
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 3px;
+    width: 0;
+    height: 2px;
+    background: #65d99a;
+    transform: translateX(-50%);
+    transition: width .25s ease
 }
 
 nav a:hover,
 nav a.active {
     background: #163d2d;
     color: #65d99a
+}
+
+nav a:hover::after,
+nav a.active::after {
+    width: 70%
 }
 
 main {
@@ -138,7 +157,7 @@ h3 {
     height: auto;
     border-radius: 16px;
     margin-top: 30px;
-    display: block;
+    display: block
 }
 
 .grid {
@@ -379,4 +398,31 @@ footer p {
         opacity: 1;
         transform: translateY(0)
     }
+}
+
+@keyframes heroReveal {
+    from {
+        opacity: 0;
+        transform: translateY(25px)
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0)
+    }
+}
+
+.hero .tag {
+    animation: heroReveal .6s ease both
+}
+
+.hero h1 {
+    animation: heroReveal .7s ease .1s both
+}
+
+.hero p {
+    animation: heroReveal .7s ease .2s both
+}
+
+.hero .button {
+    animation: heroReveal .7s ease .3s both
 }
