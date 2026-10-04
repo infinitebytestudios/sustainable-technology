@@ -102,7 +102,8 @@ main {
 }
 
 section {
-    margin-bottom: 70px
+    margin-bottom: 70px;
+    animation: fadeUp .7s ease both
 }
 
 .section-title {
@@ -132,6 +133,14 @@ h3 {
     font-size: 18px
 }
 
+.topic-image {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    margin-top: 30px;
+    display: block;
+}
+
 .grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -144,12 +153,13 @@ h3 {
     border: 1px solid #214c3b;
     border-radius: 14px;
     padding: 28px;
-    transition: transform .2s, border-color .2s
+    transition: transform .25s, border-color .25s, box-shadow .25s
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    border-color: #65d99a
+    transform: translateY(-6px) scale(1.02);
+    border-color: #65d99a;
+    box-shadow: 0 10px 25px rgba(0,0,0,.25)
 }
 
 .icon {
@@ -158,7 +168,7 @@ h3 {
 }
 
 .card p {
-    color: #b8d1c5
+    color: #e0eee7
 }
 
 .number {
@@ -264,6 +274,16 @@ h3 {
     color: #65d99a
 }
 
+.wiki-link {
+    color: #4da6ff;
+    font-weight: bold;
+    text-decoration: underline
+}
+
+.wiki-link:hover {
+    color: #8bc7ff
+}
+
 .link-box {
     margin-top: 40px;
     padding: 28px;
@@ -274,8 +294,13 @@ h3 {
 }
 
 .link-box a {
-    color: #65d99a;
-    font-weight: bold
+    color: #4da6ff;
+    font-weight: bold;
+    text-decoration: underline
+}
+
+.link-box a:hover {
+    color: #8bc7ff
 }
 
 footer {
@@ -342,5 +367,16 @@ footer p {
 
     main {
         padding: 55px 18px
+    }
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px)
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0)
     }
 }
